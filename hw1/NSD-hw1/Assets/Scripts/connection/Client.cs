@@ -36,6 +36,8 @@ public class Client
             int length = clientSocket.Receive(data);
             message = Encoding.UTF8.GetString(data, 0, length);
             Debug.Log(message);
+            clientSocket.Send(Encoding.UTF8.GetBytes(message));
+            Debug.Log("Send message back to clinet.");
         }
     }
 }
