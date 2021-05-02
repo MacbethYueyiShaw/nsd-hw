@@ -10,17 +10,17 @@ public class Server : MonoBehaviour
 {
     static List<Client> clientList = new List<Client>();//建立一个集合
     Socket tcpServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-    Thread t;
+    Thread 线程;
     public Text message;
     // Use this for initialization
     void Start()
     {
         tcpServer.Bind(new IPEndPoint(IPAddress.Parse("59.78.38.54"), 8899));
-        Debug.Log("服务端启动完成");
-        message.text = "server start.";
+        Debug.Log("我的 Unity 服务端开始启动 ");
+        message.text = "启动！";
         tcpServer.Listen(100);
-        t = new Thread(Connection);
-        t.Start();
+        线程 = new Thread(Connection);
+        线程.Start();
     }
 
 
